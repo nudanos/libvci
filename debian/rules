@@ -1,4 +1,5 @@
 #!/usr/bin/make -f
+export GO111MODULE := off
 export GOPATH=/usr/share/gocode
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
