@@ -5,3 +5,8 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
 	dh $@ --with python3
+
+# libvci.so.1 links a Go c-archive, whose DWARF 5 sections dwz cannot
+# read ("Unknown debugging section .debug_addr"). dh-golang skips dwz for
+# the same reason; it only compresses debug info.
+override_dh_dwz:
