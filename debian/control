@@ -1,9 +1,8 @@
 Source: libvci
-Section: contrib/net
+Section: net
 Priority: optional
-Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-depends:
- debhelper (>= 9),
+Maintainer: NuDanOS Maintainers <jon@fernandez.tech>
+Build-Depends: debhelper-compat (= 13),
  dh-exec,
  dh-python,
  golang-github-danos-mgmterror-dev,
@@ -12,7 +11,10 @@ Build-depends:
  pkg-config,
  python3-dev,
  swig (>= 3.0)
-Standards-Version: 3.9.8
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/nudanos/libvci.git
+Vcs-Browser: https://github.com/nudanos/libvci
 
 Package: libvci1
 Architecture: any
@@ -24,16 +26,16 @@ Description: Vyatta Component Infrastructure C/C++ library
 
 Package: libvci-dev
 Architecture: any
-Section: contrib/libdevel
+Section: libdevel
 Depends: libvci1 (= ${binary:Version}), ${misc:Depends}
 Multi-Arch: same
 Description: Vyatta Component Infrastructure C/C++ library development files
  Development files for the C/C++ library for interfacing with VCI
 
 Package: python3-vci
-Section: contrib/python
+Section: python
 Architecture: any
-Depends:
+Depends: 
  libvci1 (= ${binary:Version}),
  ${misc:Depends},
  ${python3:Depends},
@@ -43,9 +45,9 @@ Description: Python 3 bindings to Vyatta Component Infrastructure library
  Python 3 wrapper for Vyatta Component Infrastructure API
 
 Package: libvci-perl
-Section: contrib/perl
+Section: perl
 Architecture: any
-Depends:
+Depends: 
  libvci1 (= ${binary:Version}),
  ${misc:Depends},
  ${perl:Depends},
