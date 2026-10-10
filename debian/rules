@@ -10,3 +10,8 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 # read ("Unknown debugging section .debug_addr"). dh-golang skips dwz for
 # the same reason; it only compresses debug info.
 override_dh_dwz:
+
+# NuDanOS: the bindings must link libvci (Debian 13 links --as-needed)
+override_dh_auto_test:
+	dh_auto_test
+	sh tests/bindings-linked.sh
